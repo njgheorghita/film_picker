@@ -1,0 +1,20 @@
+<h1 class="dumm">what movie should I watch?</h1>
+
+<form action="/films/random" method="GET">
+  <input type="submit" class="random_button" value="random movie choice">
+</form>
+<a href='/films/new'>add a movie to the list</a>
+
+<div id="films">
+  <% @films.each do |film| %>
+    <h3><%= film.title %> (<%= film.year %>)</h3>
+    <p>Gross US Box Office Sales: $<%= film.box_office_sales %></p>
+    <form action="/films/<%= film.id %>/edit" method="GET">
+      <input class="alter_button" type="submit" value="edit"/>
+    </form>
+    <form action="/films/<%= film.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE"/>
+      <input class="alter_button" type="submit" value="delete">
+    </form>
+  <% end %>
+</div>

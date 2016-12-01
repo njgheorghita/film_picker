@@ -1,0 +1,11 @@
+<h1> All Genres </h1>
+
+<div id="genres">
+  <% @genres.each do |g| %>
+    <h1><%= g.name %></h1>
+    <% g.films.each do |f| %>
+      <h3><%= f.title %></h3>
+    <% end %>
+  <% end %>
+</div>
+
